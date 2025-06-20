@@ -102,6 +102,7 @@
     </nav>
 
     <main class="flex-shrink-0 main-bg">
+      <p class="text-end m-3">{% if user.is_authenticated %} Welcome, {{ user.username }}! {% else %} Please log in or register. {% endif %}</p>
       {% block content %}
       <!-- Content Goes here -->
       {% endblock content %}
