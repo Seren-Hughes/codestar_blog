@@ -30,9 +30,7 @@
       <div class="card-body">
         <!-- The post content goes inside the card-text. -->
         <!-- Use the | safe filter inside the template tags -->
-        <p class="card-text">
-          {{ post.content | safe }}
-        </p>
+        <div class="card-text">{{ post.content | safe }}</div>
       </div>
     </div>
   </div>
@@ -73,8 +71,8 @@
           </p>
           {% endif %}
           {% if user.is_authenticated and comment.author == user %}
-          <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
-          <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
+          <button class="btn btn-delete" data-comment_id="{{ comment.id }}">Delete</button>
+          <button class="btn btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
           {% endif %}
         </div>
         <!-- Our for loop ends here -->
@@ -86,7 +84,7 @@
       <div class="card-body">
         {% if user.is_authenticated %}
         <h3>Leave a comment:</h3>
-        <p>Posting as: {{ user.username }}</p>
+        <p>Posting as: {{ user.username }} </p>
         <form id="commentForm" method="post" style="margin-top: 1.3em;">
           {{ comment_form | crispy }}
           {% csrf_token %}
