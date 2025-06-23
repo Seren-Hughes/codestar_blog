@@ -8,6 +8,7 @@ class About(models.Model):
     """
     Stores a single about page entry.
     """
+
     title = models.CharField(max_length=200)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
@@ -21,6 +22,7 @@ class CollaborateRequest(models.Model):
     """
     Stores a single collaboration request entry.
     """
+
     name = models.CharField(max_length=200)
     email = models.EmailField()
     message = models.TextField()

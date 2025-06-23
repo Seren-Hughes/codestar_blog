@@ -6,13 +6,15 @@ from .forms import CollaborateForm
 
 def about_me(request):
     """
-    Renders the about page with the latest about entry and handles collaboration requests.
+    Renders the about page with the latest about entry and handles
+    collaboration requests.
     Displays an individual instance of :model: `about.About`
     **Context:**
     ``about``
         The latest `about.About` instance.
     ``collaborate_form``
-        An instance of `about.forms.CollaborateForm` for collaboration requests.
+        An instance of `about.forms.CollaborateForm` for collaboration
+        requests.
     **Template:**
     :template:`about/about.html`
     """
@@ -24,7 +26,10 @@ def about_me(request):
             messages.add_message(
                 request,
                 messages.SUCCESS,
-                "Collaboration request received! I endeavour to respond within 2 working days.",
+                (
+                    "Collaboration request received! "
+                    "I endeavour to respond within 2 working days."
+                ),
             )
 
     about = About.objects.all().order_by("-updated_on").first()
