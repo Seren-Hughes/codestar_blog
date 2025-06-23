@@ -60,7 +60,9 @@ def post_detail(request, slug):
             comment.post = post
             comment.save()
             messages.add_message(
-                request, messages.SUCCESS, "Comment submitted and awaiting approval"
+                request,
+                messages.SUCCESS,
+                "Comment submitted and awaiting approval",
             )
     comment_form = CommentForm()
 
@@ -102,7 +104,9 @@ def comment_edit(request, slug, comment_id):
             comment.save()
             messages.add_message(request, messages.SUCCESS, "Comment Updated!")
         else:
-            messages.add_message(request, messages.ERROR, "Error updating comment!")
+            messages.add_message(
+                request, messages.ERROR, "Error updating comment!"
+            )
 
     return HttpResponseRedirect(reverse("post_detail", args=[slug]))
 
