@@ -5,6 +5,17 @@ from .forms import CollaborateForm
 
 
 def about_me(request):
+    """
+    Renders the about page with the latest about entry and handles collaboration requests.
+    Displays an individual instance of :model: `about.About`
+    **Context:**
+    ``about``
+        The latest `about.About` instance.
+    ``collaborate_form``
+        An instance of `about.forms.CollaborateForm` for collaboration requests.
+    **Template:**
+    :template:`about/about.html`
+    """
 
     if request.method == "POST":
         collaborate_form = CollaborateForm(data=request.POST)
