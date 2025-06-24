@@ -15,6 +15,8 @@ import os
 import sys
 from django.contrib.messages import constants as messages
 import dj_database_url
+import os
+from dotenv import load_dotenv
 
 if os.path.isfile("env.py"):
     import env
@@ -31,7 +33,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     ".herokuapp.com",
@@ -124,6 +126,10 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
+
+# Access environment variables
+load_dotenv()
+DEBUG = os.getenv('DEBUG') 
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
