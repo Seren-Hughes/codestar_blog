@@ -15,11 +15,10 @@ import os
 import sys
 from django.contrib.messages import constants as messages
 import dj_database_url
-import os
 from dotenv import load_dotenv
+load_dotenv()
+import os
 
-if os.path.isfile("env.py"):
-    import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,8 +32,8 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-load_dotenv()
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+
+DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [
     ".herokuapp.com",
